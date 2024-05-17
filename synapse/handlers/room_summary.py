@@ -185,7 +185,7 @@ class RoomSummaryHandler:
 
         # First of all, check that the room is accessible locally.
         # OR accessible through federation.
-        local_room = await self._store.is_host_joined(room_id, self._server_name)
+        local_room = await self._store.is_host_joined(requested_room_id, self._server_name)
         if local_room and not await self._is_local_room_accessible(requested_room_id, requester):
             raise UnstableSpecAuthError(
                 403,
