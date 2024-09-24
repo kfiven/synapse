@@ -342,6 +342,8 @@ information.</p>
 ^/_matrix/federation/v1/make_leave/
 ^/_matrix/federation/(v1|v2)/send_join/
 ^/_matrix/federation/(v1|v2)/send_leave/
+^/_matrix/federation/v1/make_knock/
+^/_matrix/federation/v1/send_knock/
 ^/_matrix/federation/(v1|v2)/invite/
 ^/_matrix/federation/v1/event_auth/
 ^/_matrix/federation/v1/timestamp_to_event/
@@ -418,6 +420,7 @@ information.</p>
 </code></pre>
 <p>Additionally, the following REST endpoints can be handled for GET requests:</p>
 <pre><code>^/_matrix/client/(api/v1|r0|v3|unstable)/pushrules/
+^/_matrix/client/unstable/org.matrix.msc4140/delayed_events
 </code></pre>
 <p>Pagination requests can also be handled, but all requests for a given
 room must be routed to the same instance. Additionally, care must be taken to
@@ -789,6 +792,8 @@ worker_log_config: /etc/matrix-synapse/federation-sender-log.yaml
 <h3 id="synapseappmedia_repository"><a class="header" href="#synapseappmedia_repository"><code>synapse.app.media_repository</code></a></h3>
 <p>Handles the media repository. It can handle all endpoints starting with:</p>
 <pre><code>/_matrix/media/
+/_matrix/client/v1/media/
+/_matrix/federation/v1/media/
 </code></pre>
 <p>... and the following regular expressions matching media-specific administration APIs:</p>
 <pre><code>^/_synapse/admin/v1/purge_media_cache$
